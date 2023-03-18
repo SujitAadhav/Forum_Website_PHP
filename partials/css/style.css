@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.media{
+    display: flex;
+    flex-direction: row;
+}
+
+.media > img{
+    width: 3em;
+    height: 3em;
+    margin-right: 10px;
+}
+
+.min-ht{
+    min-height: 85vh;
+}
