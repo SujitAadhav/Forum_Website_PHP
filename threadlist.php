@@ -13,8 +13,8 @@
   </head>
   <body>
     <?php 
-    include 'partials/_header.php';
     include 'partials/_dbconnect.php';
+    include 'partials/_header.php';
 
     // Fetch data as per category id
 
@@ -35,7 +35,14 @@
                 $problem_title = $_POST['problem_title'];
                 $problem_desc = $_POST['problem_desc'];
 
-                $sql = "INSERT INTO `threads` (`thread_title`, `thread_desc`, `thread_cat_id`, `thread_user_id`, `thread_dt`) VALUES ('$problem_title', '$problem_desc', '$id', '0', current_timestamp())";
+                $problem_title = str_replace('<','&lt;',$problem_title);
+                $problem_title = str_replace('>','&gt;',$problem_title);
+
+                $problem_desc = str_replace('<','&lt;',$problem_desc);
+                $problem_desc = str_replace('>','&gt;',$problem_desc);
+
+                $user_id = $_SESSION['userid'];
+                $sql = "INSERT INTO `threads` (`thread_title`, `thread_desc`, `thread_cat_id`, `thread_user_id`, `thread_dt`) VALUES ('$problem_title', '$problem_desc', '$id', '$user_id', current_timestamp())";
                 $result = mysqli_query($conn, $sql);
                 if($result){
                     $showAlert = true;
@@ -99,11 +106,15 @@
                     $thread_title = $row['thread_title'];
                     $thread_desc = $row['thread_desc'];
                     $thread_time = $row['thread_dt'];
+                    $thread_user_id = $row['thread_user_id'];
+                    $sql2 = "SELECT `user_name` FROM `users` WHERE `user_id` = '$thread_user_id'";
+                    $result2 = mysqli_query($conn, $sql2);
+                    $row2=mysqli_fetch_assoc($result2);
                     echo '
                     <div class="media">
                         <img src="partials/img/default_user.png" alt="">
                         <div class="media-body">
-                            <p class="fw-bold my-0">Anonymous User at '.$thread_time.'</p>
+                            <p class="fw-bold my-0">'.$row2['user_name'].' at '.$thread_time.'</p>
                             <h4><a class="text-dark" href="thread.php?threadid='.$thread_id.'">'.$thread_title.'</a></h4>
                             <p>'.$thread_desc.'</p>
                         </div>

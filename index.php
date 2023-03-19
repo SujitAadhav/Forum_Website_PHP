@@ -13,8 +13,8 @@
   </head>
   <body>
     <?php 
-    include 'partials/_header.php';
     include 'partials/_dbconnect.php';
+    include 'partials/_header.php';
     ?>
 
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
