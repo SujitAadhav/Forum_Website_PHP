@@ -17,3 +17,25 @@
 .min-ht{
     min-height: 85vh;
 }
+
+.sty-contact{
+    max-width: 75vw;
+    margin: auto;
+    background-color: #e8edf0;
+}
+
+.sty-map{
+    padding: 0;
+}
+
+.ml-2{
+    padding-left: 2em;
+}
+
+.ml-1{
+    padding-left: 1.2em;
+}
+
+.mr-1{
+    padding: 1.2em;
+}

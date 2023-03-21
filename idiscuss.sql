@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2023 at 10:47 AM
+-- Generation Time: Mar 21, 2023 at 01:24 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -66,6 +66,32 @@ INSERT INTO `comments` (`comment_id`, `comment_content`, `thread_id`, `comment_b
 (1, 'This is my first comment', 1, 1, '2023-03-17 12:33:04'),
 (2, 'This is my second comment', 1, 2, '2023-03-17 12:43:16'),
 (3, 'Hello how are you', 1, 3, '2023-03-19 11:45:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `contact_id` int(11) NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `contact_dt` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`contact_id`, `fullname`, `email`, `subject`, `message`, `contact_dt`) VALUES
+(1, 'Rahul Adhav', 'rahuladhav0@gmail.com', 'This is a Subject', 'This is a message', '2023-03-21 17:27:40'),
+(2, 'Sujit Chhotu Adhav', 'sujittech5@gmail.com', 'I want to develop a website from you.', 'Hello sir! I want to develop a website from you. because your forum is very amezing.', '2023-03-21 17:42:06'),
+(3, 'Sujit Chhotu Adhav', 'sujittech5@gmail.com', 'I want to develop a website from you.', 'Hello sir! I want to develop a website from you. because your forum is very amezing.', '2023-03-21 17:43:08'),
+(4, 'Sujit Chhotu Adhav', 'sujittech5@gmail.com', 'I want to develop a website from you.', 'Hello sir! I want to develop a website from you. because your forum is very amezing.', '2023-03-21 17:43:23'),
+(5, '1', 'emai@jfldj.com', '1', '1', '2023-03-21 17:44:48');
 
 -- --------------------------------------------------------
 
@@ -144,6 +170,12 @@ ALTER TABLE `comments`
 ALTER TABLE `comments` ADD FULLTEXT KEY `comment_content` (`comment_content`);
 
 --
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`contact_id`);
+
+--
 -- Indexes for table `threads`
 --
 ALTER TABLE `threads`
@@ -171,6 +203,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `comments`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `threads`
