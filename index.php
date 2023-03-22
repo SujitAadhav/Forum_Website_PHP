@@ -53,7 +53,7 @@
                 $desc = $row['category_description'];
                 echo '
                 <div class="card mx-2 my-2" style="width: 18rem;">
-                <img src="https://loremflickr.com/g/320/240/coding,'.$cat.'/all" class="card-img-top" alt="...">
+                <img src="https://loremflickr.com/g/320/240/code,'.$cat.'/all" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">'.substr($cat, 0, 20).'...</h5>
                     <p class="card-text">'.substr($desc, 0, 90).'...</p>

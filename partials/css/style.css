@@ -39,3 +39,17 @@
 .mr-1{
     padding: 1.2em;
 }
+
+.max-width{
+    max-width: 65vw;
+}
+
+.sty-about-1{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.text-align-j{
+    text-align: justify;
+}
